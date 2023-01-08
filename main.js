@@ -3,14 +3,20 @@ const gameOverEl = document.getElementById("gameOver");
 const player = document.getElementById("player");
 const popTextCongo = document.getElementById("pop-text-congo");
 let count = 0;
-let isGameOver=false;
+let isGameOver = false;
+
+const tie = new Audio('./assets/tie.mp3')
+const playerClicked = new Audio('./assets/playerClicked.mp3')
+const error = new Audio('./assets/error.mp3')
+const playerWin = new Audio('./assets/playerWin.mp3')
 
 for (let i = 0; i < 9; i++) {
     board[i].addEventListener('click', () => { turn(i) })
 }
 
 const turn = (i) => {
-    if (board[i].innerText == "" && isGameOver==false) {
+    if (board[i].innerText == "" && isGameOver == false) {
+        playerClicked.play();
         if (count % 2 == 0)
             board[i].innerText = "X"
         else
@@ -21,22 +27,28 @@ const turn = (i) => {
             oWinValue = checkWin('O')
             if (xWinValue != -1) {
                 gameOver(xWinValue);
+                playerWin.play();
             }
             else if (oWinValue != -1) {
                 gameOver(oWinValue);
+                playerWin.play();
             }
             else if (count == 9) {
+                tie.play()
                 popTextCongo.innerText = "Tie"
                 gameOver();
             }
         }
+    }
+    if(isGameOver==true){
+        error.play();
     }
 }
 
 const gameOver = (win = 0) => {
     gameOverEl.style.display = "flex";
     player.innerText = win;
-    isGameOver=true
+    isGameOver = true
 }
 
 
@@ -76,11 +88,11 @@ function restart() {
     location.reload();
 }
 function replay() {
-    count=0;
-    isGameOver=false;
+    count = 0;
+    isGameOver = false;
     gameOverEl.style.display = "none";
     for (let i = 0; i < 9; i++) {
-        board[i].innerText="";
+        board[i].innerText = "";
     }
 }
 
