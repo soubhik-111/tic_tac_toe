@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="heading"><span>Tic Tac Toe</span></h1>
+    <main>
+        <div class="container">
+            <div class="board" id="_0"></div>
+            <div class="board" id="_1"></div>
+            <div class="board" id="_2"></div>
+            <div class="board" id="_3"></div>
+            <div class="board" id="_4"></div>
+            <div class="board" id="_5"></div>
+            <div class="board" id="_6"></div>
+            <div class="board" id="_7"></div>
+            <div class="board" id="_8"></div>
+        </div>
+    </main>
+    <div class="btn-container btn">
+        <button onclick="replay()">Replay</button>
+        <button onclick="restart()">Restart</button>
+    </div>
+    <div id="gameOver">
+
+            <div class="popup-container">
+                <div class="pop-bar">
+                    <span class="pop-title">Tic Tac Toe</span>
+                    <i class="fa-solid fa-xmark" id="cross" onclick="cross()"></i>
+                </div>
+                <div class="pop-main">
+                    <p id="pop-text">Thanks For Playing</p>
+                    <p id="pop-text-over">Game Over</p>
+                    <p id="pop-text-congo">Congratulations <span id="player"></span> won</p>
+                </div>
+                <div class="btn-container">
+                    <button onclick="replay()">Replay</button>
+                </div>
+            </div>
+
+    </div>
+    <script src="https://kit.fontawesome.com/4f4f6e8374.js" crossorigin="anonymous"></script>
+    <script src="main.js"></script>
+</body>
+</html>
