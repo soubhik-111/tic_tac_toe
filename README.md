@@ -1,5 +1,5 @@
 # tic_tac_toe
-This is a simple implementation of the classic game Tic Tac Toe, also known as Noughts and Crosses. It is written in [language], and the game can be played through the command line.
+This is a simple implementation of the classic game Tic Tac Toe, also known as Noughts and Crosses. The game can be played through the live link.
 
 To get started, clone the repository and navigate to the project directory:
 
