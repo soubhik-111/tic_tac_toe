@@ -1,5 +1,6 @@
 const turnA = "❌"
 const turnB = "❤️"
+const gameOverBoad = "rgb(255 159 159 / 51%)"
 
 const board = document.querySelectorAll('.board')
 const gameOverEl = document.getElementById("gameOver");
@@ -44,7 +45,7 @@ const turn = (i) => {
             }
         }
     }
-    if(isGameOver==true){
+    if (isGameOver == true) {
         error.play();
     }
 }
@@ -55,34 +56,56 @@ const gameOver = (win = 0) => {
     isGameOver = true
 }
 
+const changeBoardColor = (i, j, k) => {
+    board[i].style.backgroundColor = gameOverBoad;
+    board[j].style.backgroundColor = gameOverBoad;
+    board[k].style.backgroundColor = gameOverBoad;
+}
+
 
 const checkWin = (e) => {
     // Horizontal
-    if (board[0].innerText == board[1].innerText && board[1].innerText == board[2].innerText && board[2].innerText == e)
+    if (board[0].innerText == board[1].innerText && board[1].innerText == board[2].innerText && board[2].innerText == e) {
+        changeBoardColor(0, 1, 2);
         return e;
+    }
 
-    else if (board[3].innerText == board[4].innerText && board[4].innerText == board[5].innerText && board[5].innerText == e)
+    else if (board[3].innerText == board[4].innerText && board[4].innerText == board[5].innerText && board[5].innerText == e) {
+        changeBoardColor(3, 4, 5);
         return e;
+    }
 
-    else if (board[6].innerText == board[7].innerText && board[7].innerText == board[8].innerText && board[8].innerText == e)
+    else if (board[6].innerText == board[7].innerText && board[7].innerText == board[8].innerText && board[8].innerText == e) {
+        changeBoardColor(6, 7, 8);
         return e;
+    }
 
     // Vertical
-    else if (board[0].innerText == board[3].innerText && board[3].innerText == board[6].innerText && board[6].innerText == e)
+    else if (board[0].innerText == board[3].innerText && board[3].innerText == board[6].innerText && board[6].innerText == e) {
+        changeBoardColor(0, 3, 6);
         return e;
+    }
 
-    else if (board[1].innerText == board[4].innerText && board[4].innerText == board[7].innerText && board[7].innerText == e)
+    else if (board[1].innerText == board[4].innerText && board[4].innerText == board[7].innerText && board[7].innerText == e) {
+        changeBoardColor(1, 4, 7);
         return e;
+    }
 
-    else if (board[2].innerText == board[5].innerText && board[5].innerText == board[8].innerText && board[8].innerText == e)
+    else if (board[2].innerText == board[5].innerText && board[5].innerText == board[8].innerText && board[8].innerText == e) {
+        changeBoardColor(2,5,8);
         return e;
+    }
 
     // Diagonally
-    else if (board[0].innerText == board[4].innerText && board[4].innerText == board[8].innerText && board[8].innerText == e)
+    else if (board[0].innerText == board[4].innerText && board[4].innerText == board[8].innerText && board[8].innerText == e) {
+        changeBoardColor(0, 4, 8);
         return e;
+    }
 
-    else if (board[2].innerText == board[4].innerText && board[4].innerText == board[6].innerText && board[6].innerText == e)
+    else if (board[2].innerText == board[4].innerText && board[4].innerText == board[6].innerText && board[6].innerText == e) {
+        changeBoardColor(2, 4, 6);
         return e;
+    }
 
     else
         return -1;
@@ -97,6 +120,7 @@ function replay() {
     gameOverEl.style.display = "none";
     for (let i = 0; i < 9; i++) {
         board[i].innerText = "";
+        board[i].style.backgroundColor = "";
     }
 }
 
