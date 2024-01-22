@@ -1,14 +1,18 @@
+const turnA = "❌"
+const turnB = "❤️"
+
 const board = document.querySelectorAll('.board')
 const gameOverEl = document.getElementById("gameOver");
 const player = document.getElementById("player");
 const popTextCongo = document.getElementById("pop-text-congo");
-let count = 0;
-let isGameOver = false;
 
 const tie = new Audio('./assets/tie.mp3')
 const playerClicked = new Audio('./assets/playerClicked.mp3')
 const error = new Audio('./assets/error.mp3')
 const playerWin = new Audio('./assets/playerWin.mp3')
+
+let isGameOver = false;
+let count = 0;
 
 for (let i = 0; i < 9; i++) {
     board[i].addEventListener('click', () => { turn(i) })
@@ -18,13 +22,13 @@ const turn = (i) => {
     if (board[i].innerText == "" && isGameOver == false) {
         playerClicked.play();
         if (count % 2 == 0)
-            board[i].innerText = "X"
+            board[i].innerText = turnA;
         else
-            board[i].innerText = "O"
+            board[i].innerText = turnB;
         count++;
         if (count >= 5) {
-            xWinValue = checkWin('X')
-            oWinValue = checkWin('O')
+            xWinValue = checkWin(turnA)
+            oWinValue = checkWin(turnB)
             if (xWinValue != -1) {
                 gameOver(xWinValue);
                 playerWin.play();

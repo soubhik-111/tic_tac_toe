@@ -4,13 +4,18 @@
     box-sizing: border-box;
 }
 
+:root{
+    --primarycolor: rgb(255, 92, 92);
+}
+
 body {
     height: 100vh;
     width: 100vw;
+    font-family: cursive;
 }
 
 ul {
-    background-color: rgb(249, 212, 253);
+    background-color: var(--primarycolor);
     height: 100%;
     width: 100%;
     max-height: 8vh;
@@ -68,7 +73,7 @@ main {
 }
 
 .container div:hover {
-    background-color: rgb(249, 212, 253);
+    background-color:  rgb(255, 190, 190);
 }
 
 #_0 {
@@ -129,12 +134,13 @@ main {
     max-width: 50vw;
     background-color: rgb(255, 255, 255);
     filter: none;
-    border: 2px double rgb(0, 0, 0);
+    border: 1px solid rgb(0, 0, 0);
     border-radius: 15px 15px 0 0;
+    box-shadow: 0px 0px 10px red;
 }
 
 .pop-bar {
-    background-color: rgb(249, 212, 253);
+    background-color: var(--primarycolor);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -181,7 +187,7 @@ main {
 
 .btn-container button {
     border: 0;
-    background-color: rgb(249, 212, 253);
+    background-color: var(--primarycolor);
     height: 100%;
     width: 100%;
     min-height: 5vh;
@@ -202,4 +208,44 @@ main {
     min-height: 8vh;
     max-width: 15vw;
     font-size: 1.5rem;
+}
+
+@media only screen and (max-width:500px) {
+    ul>li{
+        font-size: 1.5rem;
+    }
+    #heading{
+        font-size: 1.5rem;
+        max-height: 10vh;
+    }
+    .btn-container button {
+        font-size: 1rem;
+    }
+    .popup-container{
+        max-width: 85%;
+        
+    }
+    .pop-bar{
+        padding:0 15px;
+    }
+    .pop-title{
+        font-size: 1.3rem;
+    }
+    .pop-main{
+        padding: 0 15px;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: space-around;
+    }
+    .pop-main>p{
+        margin: 0;
+    }
+    #cross{
+        padding: 0;
+    }
+    #pop-text{
+        font-size: 2rem;
+        font-weight: bold;
+    }
 }
